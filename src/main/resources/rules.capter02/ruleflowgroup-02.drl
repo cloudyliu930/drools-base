@@ -1,0 +1,9 @@
+package rules.capter01
+
+rule "rule-flow-group-02"
+ruleflow-group "rule-flow-group-02"
+
+when
+then
+    System.out.println("rule-flow-group-02");
+end

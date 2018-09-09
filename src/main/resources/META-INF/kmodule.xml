@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<kmodule xmlns="http://www.drools.org/xsd/kmodule">
+    <kbase name="rules" packages="rules.capter01">
+        <ksession name="hello"></ksession>
+    </kbase>
+
+    <kbase name="ruleFlowGroup" packages="rules.capter02">
+        <ksession name="ruleFlowGroup"></ksession>
+    </kbase>
+</kmodule>

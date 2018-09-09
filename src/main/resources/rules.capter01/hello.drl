@@ -1,0 +1,17 @@
+package rules.capter01
+
+import com.cloudy.capter01.Person
+
+rule "person"
+when
+    $car : Person(age > 30 && age < 100)
+then
+    $car.setName("hello");
+end
+
+rule "person1"
+when
+    $car : Person(age > 100)
+then
+    $car.setName("hello1");
+end
