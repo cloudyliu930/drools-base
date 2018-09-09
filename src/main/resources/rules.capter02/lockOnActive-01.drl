@@ -1,0 +1,21 @@
+package rules.capter02
+
+import com.cloudy.capter02.Person
+
+rule "lock-on-active-01"
+when
+    $person: Person(age < 20)
+then
+    System.out.println("rule-flow-group-01");
+    $person.setAge(21);
+    update($person)
+end
+
+rule "lock-on-active-02"
+lock-on-active true
+when
+    $person : Person(age > 20)
+then
+    System.out.println("rule-flow-group-02");
+end
+

@@ -29,7 +29,14 @@ public class RuleFlowTest extends BaseTest {
 
     @Test
     public void testLockOnActive() {
-        KieSession kieSession = super.getKieSession("ruleFlowGroup");
+        KieSession kieSession = super.getKieSession("lockOnActive");
+
+        Person person = new Person();
+        person.setAge(19);
+
+        kieSession.insert(person);
+        kieSession.fireAllRules();
+        kieSession.dispose();
     }
 
 }
