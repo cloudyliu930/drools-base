@@ -11,4 +11,8 @@
     <kbase name="lockOnActive" packages="rules.capter02">
         <ksession name="lockOnActive"></ksession>
     </kbase>
+
+    <kbase name="salience" packages="rules.capter03">
+        <ksession name="salience"></ksession>
+    </kbase>
 </kmodule>

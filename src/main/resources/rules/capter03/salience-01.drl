@@ -1,0 +1,25 @@
+package rules.capter03
+
+import com.cloudy.capter03.Person
+
+rule "salience-01"
+when
+then
+    System.out.println("salience-01");
+end
+
+rule "salience-02"
+salience 1
+when
+then
+    System.out.println("salience-02");
+end
+
+rule "salience-03"
+salience age1
+when
+     $person: Person(age1 : age)
+then
+    System.out.println("salience-03");
+end
+
