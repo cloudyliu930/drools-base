@@ -23,6 +23,7 @@
     <properties>
         <drools.version>7.10.0.Final</drools.version>
         <commons-lang3.version>3.7</commons-lang3.version>
+        <log.version>1.7.25</log.version>
     </properties>
 
     <dependencies>
@@ -50,5 +51,13 @@
             <artifactId>junit</artifactId>
             <version>4.12</version>
         </dependency>
+
+        <!-- start Log4j2 -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>${log.version}</version>
+        </dependency>
+        <!-- end Log4j2 -->
     </dependencies>
 </project>
