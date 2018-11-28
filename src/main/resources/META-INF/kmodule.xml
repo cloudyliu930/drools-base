@@ -15,4 +15,12 @@
     <kbase name="salience" packages="rules.capter03">
         <ksession name="salience"></ksession>
     </kbase>
+
+    <kbase name="agenda-group" packages="rules.capter04">
+        <ksession name="agenda-group"></ksession>
+    </kbase>
+
+    <kbase name="date-effective" packages="rules.capter05">
+        <ksession name="date-effective"></ksession>
+    </kbase>
 </kmodule>
