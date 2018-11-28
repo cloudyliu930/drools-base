@@ -1,0 +1,12 @@
+package rules.capter05
+
+rule "do1"
+when
+    eval(true)
+    do[then1]
+    do[then1]
+then
+    System.out.println("then");
+then[then1]
+    System.out.println("then1");
+end

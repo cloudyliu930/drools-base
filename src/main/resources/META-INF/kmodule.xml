@@ -22,5 +22,6 @@
 
     <kbase name="date-effective" packages="rules.capter05">
         <ksession name="date-effective"></ksession>
+        <ksession name="timer"></ksession>
     </kbase>
 </kmodule>

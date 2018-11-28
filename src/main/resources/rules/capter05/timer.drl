@@ -1,0 +1,24 @@
+package rules.capter05
+
+import com.cloudy.capter01.Person
+
+rule "timer1"
+timer (int: 0 5s)
+agenda-group "a"
+when
+then
+    System.out.println("timer ...");
+end
+
+rule "timer2"
+when
+
+then
+    System.out.println("a");
+end
+
+rule "timer3" extends "timer2"
+when
+then
+    System.out.println("b");
+end
