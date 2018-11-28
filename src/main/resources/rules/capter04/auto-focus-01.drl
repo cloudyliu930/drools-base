@@ -1,0 +1,26 @@
+package rules.capter04
+
+import com.cloudy.capter03.Person
+
+rule "auto-focus-01"
+agenda-group "abc"
+when
+then
+    System.out.println("auto-focus-01");
+end
+
+rule "auto-focus-02"
+agenda-group "abc"
+salience 1
+when
+then
+    System.out.println("auto-focus-02");
+end
+
+rule "auto-focus-03"
+agenda-group "abcd"
+when
+then
+    System.out.println("auto-focus-03");
+end
+

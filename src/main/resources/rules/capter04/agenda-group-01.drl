@@ -1,0 +1,26 @@
+package rules.capter04
+
+import com.cloudy.capter03.Person
+
+rule "salience-01"
+agenda-group "abc"
+when
+then
+    System.out.println("salience-01");
+end
+
+rule "salience-02"
+agenda-group "abc"
+salience 1
+when
+then
+    System.out.println("salience-02");
+end
+
+rule "salience-03"
+agenda-group "abcd"
+when
+then
+    System.out.println("salience-03");
+end
+

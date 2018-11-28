@@ -1,0 +1,15 @@
+package rules.capter05
+
+rule "date-effective"
+date-effective "2018-09-10 21:31:11"
+when
+then
+    System.out.println("date-effective");
+end
+
+rule "date-effective-01"
+timer(cron: * 0/2 * * * ?)
+when
+then
+    System.out.println("date-effective-01");
+end

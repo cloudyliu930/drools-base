@@ -1,0 +1,27 @@
+package rules.capter04
+
+rule "activation-group-01"
+agenda-group "activation-group"
+activation-group "activation-group"
+salience 1
+when
+then
+    System.out.println("activation-group-01");
+end
+
+rule "activation-group-02"
+agenda-group "activation-group"
+salience 1
+activation-group "activation-group"
+when
+then
+    System.out.println("activation-group-02");
+end
+
+rule "activation-group-03"
+agenda-group "abcd"
+when
+then
+    System.out.println("activation-group-03");
+end
+
