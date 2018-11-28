@@ -3,15 +3,23 @@ package rules.capter01
 import com.cloudy.capter01.Person
 
 rule "person"
+dialect "mvel"
 when
     $car : Person(age > 30 && age < 100)
 then
     $car.setName("hello");
+    $car.setAge(101);
+    System.out.println("改完后的名字：" + $car.name);
+    System.out.println("改完后的名字：" + $car.age);
+
+    update($car);
 end
 
 rule "person1"
+dialect "mvel"
 when
     $car : Person(age > 100)
 then
     $car.setName("hello1");
+    System.out.println("改完后的名字：" + $car.name);
 end

@@ -4,6 +4,8 @@ import com.cloudy.BaseTest;
 import org.junit.Test;
 import org.kie.api.runtime.KieSession;
 import org.kie.api.runtime.rule.FactHandle;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import static org.junit.Assert.assertEquals;
 
@@ -16,10 +18,9 @@ public class DroolsTest extends BaseTest {
     public void testHello() throws Exception {
         KieSession session = super.getKieSession("hello");
         Person person = new Person();
-        person.setAge(100);
+        person.setAge(90);
         FactHandle handle = session.insert(person);
         int count = session.fireAllRules();
-
         System.out.println("name:" + person.getName() + ",age:" + person.getAge() + ", count:" + count);
         session.dispose();
     }
