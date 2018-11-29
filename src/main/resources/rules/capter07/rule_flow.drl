@@ -1,0 +1,17 @@
+package rules.capter07
+
+import com.cloudy.Leave
+
+rule "leave1"
+    when
+    	u : Leave(day < 3);
+    then
+    	u.setTotal(u.getDay() + 2);
+end
+
+rule "leave2"
+    when
+    	u : Leave(day >= 3);
+    then
+    	u.setTotal(u.getDay() + 5);
+end

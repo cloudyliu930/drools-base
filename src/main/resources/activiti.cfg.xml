@@ -1,0 +1,26 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans   http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<bean id="processEngineConfiguration"
+
+      class="org.activiti.engine.impl.cfg.StandaloneProcessEngineConfiguration">
+
+    <property name="customPostDeployers">
+
+        <list>
+
+            <bean class="org.activiti.engine.impl.rules.RulesDeployer" />
+
+        </list>
+
+    </property>
+
+    <property name="jdbcUrl" value="jdbc:mysql://172.17.7.183:3306/YGPS_TestDB" />
+    <property name="jdbcDriver" value="com.mysql.jdbc.Driver" />
+    <property name="jdbcUsername" value="ygtest" />
+    <property name="jdbcPassword" value="ygtest" />
+
+</bean>
+
+</beans>

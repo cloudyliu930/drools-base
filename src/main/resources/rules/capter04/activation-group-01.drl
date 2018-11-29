@@ -24,4 +24,3 @@ when
 then
     System.out.println("activation-group-03");
 end
-

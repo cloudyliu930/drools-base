@@ -1,0 +1,16 @@
+package rules.capter08;
+
+import com.cloudy.capter01.Person;
+
+expander PersonDSL.dsl
+
+rule "dslTest"
+when
+    There is a Person with
+    - age is less than or equal to 30
+    - name equals "stilton"
+then
+    公司给予你"《高级项目经理的职位》"的荣誉称号
+    打印我要输出啦啦啦啦啦啦、、、、、、、、、、
+    打印我要输出啦啦啦啦啦啦、、、、、、、、、、
+end
