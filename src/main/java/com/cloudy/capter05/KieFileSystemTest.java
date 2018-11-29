@@ -34,6 +34,19 @@ public class KieFileSystemTest {
         KieFileSystem fileSystem = kieServices.newKieFileSystem();
         fileSystem.writeKModuleXML(kieModuleModel.toXML());
 
+
+        KieBaseModel kieBaseModel1 = kieModuleModel.newKieBaseModel("KBase2")
+                .setDefault(Boolean.TRUE)
+                .setEqualsBehavior(EqualityBehaviorOption.EQUALITY)
+                .setEventProcessingMode(EventProcessingOption.STREAM);
+
+        KieSessionModel kieSessionModel1 = kieBaseModel1.newKieSessionModel("kSession2")
+                .setDefault(Boolean.TRUE)
+                .setType(KieSessionModel.KieSessionType.STATEFUL)
+                .setClockType(ClockTypeOption.get("realtime"));
+
+        KieFileSystem fileSystem1 = kieServices.newKieFileSystem();
+        fileSystem.writeKModuleXML(kieModuleModel.toXML());
     }
 
 }

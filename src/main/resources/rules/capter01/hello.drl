@@ -2,24 +2,84 @@ package rules.capter01
 
 import com.cloudy.capter01.Person
 
+global java.util.List list
+global java.lang.Integer count
+global com.cloudy.capter01.Person globalPerson
+
 rule "person"
 dialect "mvel"
+no-loop true
+date-effective "2018-11-28"
+activation-group "a"
 when
-    $car : Person(age > 30 && age < 100)
+    $car : Person((age%2) == 0 && age < 100)
 then
     $car.setName("hello");
-    $car.setAge(101);
+    $car.setAge(90);
     System.out.println("改完后的名字：" + $car.name);
     System.out.println("改完后的名字：" + $car.age);
 
     update($car);
+
+    System.out.println("count1:" + count);
+    count = 10;
+    System.out.println("count2:" + count);
+
+    System.out.println("name1:" + globalPerson.name);
+    globalPerson.name = "zhangsan";
+    System.out.println("name2:" + globalPerson.name);
+
+    list.add("33333");
 end
 
 rule "person1"
 dialect "mvel"
+no-loop true
+activation-group "a"
 when
     $car : Person(age > 100)
 then
     $car.setName("hello1");
     System.out.println("改完后的名字：" + $car.name);
+end
+
+rule "person2"
+dialect "mvel"
+no-loop true
+activation-group "a"
+when
+    $car: Person(name contains "hello")
+then
+    System.out.println("contains hello");
+end
+
+rule "person3"
+dialect "mvel"
+no-loop true
+activation-group "a"
+when
+    $person: Person(name not contains "hello2")
+then
+    System.out.println("not contains hello2");
+
+    System.out.println("coun3:" + count);
+
+    System.out.println("name3:" + globalPerson.name);
+end
+
+rule "person4"
+dialect "mvel"
+no-loop true
+when
+    $person: Person(name memberOf list)
+then
+    System.out.println("username memberOf Person");
+end
+
+rule "person5"
+dialect "mvel"
+when
+    eval(globalPerson.name == "zhangsan")
+then
+    System.out.println("person5 active" + globalPerson.name);
 end

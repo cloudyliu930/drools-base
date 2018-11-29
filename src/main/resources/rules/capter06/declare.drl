@@ -1,0 +1,21 @@
+package rules.capter06
+
+import java.util.Date
+
+declare Address
+    number: int
+    name: String
+    date: Date
+end
+
+rule "declare1"
+agenda-group "dec"
+dialect "mvel"
+when
+    $address: Address()
+then
+    System.out.println("declare");
+    System.out.println("address.name:" + $address.name);
+    $address.name = "lisi";
+    System.out.println("address.name:" + $address.name);
+end

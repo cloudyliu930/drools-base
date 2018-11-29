@@ -1,0 +1,17 @@
+package rules.capter06
+
+import function com.cloudy.capter06.FunctionTest.Hello
+
+function String hello(String name) {
+    return "Hello " + name;
+}
+
+rule "function1"
+agenda-group "fun"
+when
+
+then
+    System.out.println("*********************************************************************************");
+    System.out.println(hello("Bob"));
+    System.out.println(Hello("Bob"));
+end

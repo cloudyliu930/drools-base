@@ -1,0 +1,21 @@
+package rules.capter06
+
+import com.cloudy.capter01.Person
+
+rule "group1"
+agenda-group "a"
+activation-group "a"
+when
+
+then
+    System.out.println("test agenda group");
+end
+
+rule "group2"
+agenda-group "a"
+activation-group "a"
+when
+
+then
+    System.out.println("test agenda group2");
+end

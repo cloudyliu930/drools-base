@@ -10,6 +10,7 @@ import org.kie.api.runtime.KieSession;
 public class BaseTest {
 
     protected KieSession getKieSession(String sessionName) {
+        System.setProperty("drools.dateformat", "yyyy-MM-dd");
         KieServices kieServices = KieServices.Factory.get();
         KieContainer kieContainer = kieServices.newKieClasspathContainer();
         KieSession session = kieContainer.newKieSession(sessionName);

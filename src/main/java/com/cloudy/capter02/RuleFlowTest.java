@@ -35,8 +35,10 @@ public class RuleFlowTest extends BaseTest {
         person.setAge(19);
 
         kieSession.insert(person);
-        kieSession.fireAllRules();
+        int result =kieSession.fireAllRules();
         kieSession.dispose();
+
+        System.out.println("执行了" + result + "条规则");
     }
 
 }
