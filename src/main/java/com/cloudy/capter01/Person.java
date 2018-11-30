@@ -28,4 +28,13 @@ public class Person {
     public void setPost(String post) {
         this.post = post;
     }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                ", post='" + post + '\'' +
+                '}';
+    }
 }

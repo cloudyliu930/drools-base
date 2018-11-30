@@ -1,0 +1,20 @@
+package rules.capter09
+
+import com.cloudy.capter01.Person
+
+rule "event"
+dialect "mvel"
+when
+
+then
+    Person person = new Person();
+    person.name = "zhangsan";
+
+    insert(person);
+
+    person.name = "zhangsan1";
+    update(person);
+
+    person.name = "zhangsan2";
+    update(person);
+end

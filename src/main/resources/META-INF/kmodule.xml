@@ -24,4 +24,8 @@
         <ksession name="date-effective"></ksession>
         <ksession name="timer"></ksession>
     </kbase>
+
+    <kbase name="event" packages="rules.capter09">
+        <ksession name="event"></ksession>
+    </kbase>
 </kmodule>

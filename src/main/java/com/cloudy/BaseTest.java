@@ -17,4 +17,10 @@ public class BaseTest {
         return session;
     }
 
+    public void fireAllRules(KieSession kieSession) {
+        int result = kieSession.fireAllRules();
+        kieSession.dispose();
+
+        System.out.println("规则执行了" + result + "次");
+    }
 }

@@ -39,6 +39,7 @@ public class XSLTest extends BaseTest {
         KieHelper helper = new KieHelper();
         helper.addResource(dis,ResourceType.DTABLE);
         KieSession ksession = helper.build().newKieSession();
+        
         int i = ksession.fireAllRules();
         System.out.println( " " + i + "次");
         ksession.dispose();
