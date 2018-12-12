@@ -2,6 +2,7 @@
 <kmodule xmlns="http://www.drools.org/xsd/kmodule">
     <kbase name="rules" packages="rules.capter01">
         <ksession name="hello"></ksession>
+        <ksession name="abc" type="stateless"></ksession>
     </kbase>
 
     <kbase name="ruleFlowGroup" packages="rules.capter02">

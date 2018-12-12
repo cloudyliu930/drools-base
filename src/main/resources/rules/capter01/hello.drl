@@ -79,7 +79,9 @@ end
 rule "person5"
 dialect "mvel"
 when
-    eval(globalPerson.name == "zhangsan")
+    $person: Person(name == "zhangsan" || == "lisi" || == null || == "abc")
 then
-    System.out.println("person5 active" + globalPerson.name);
+    System.out.println("person5 person.name:" + $person.name);
+    System.out.println("person5 person.age:" + $person.age);
+    System.out.println("person5 active:" + globalPerson.name);
 end

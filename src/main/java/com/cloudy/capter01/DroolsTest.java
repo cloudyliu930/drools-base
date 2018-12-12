@@ -3,6 +3,7 @@ package com.cloudy.capter01;
 import com.cloudy.BaseTest;
 import org.junit.Test;
 import org.kie.api.runtime.KieSession;
+import org.kie.api.runtime.StatelessKieSession;
 import org.kie.api.runtime.rule.FactHandle;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,6 +35,7 @@ public class DroolsTest extends BaseTest {
         globalPerson.setAge(90);
         globalPerson.setName("abc");
 
+
         session.setGlobal("list", list);
         session.setGlobal("count", 520);
         session.setGlobal("globalPerson", globalPerson);
@@ -63,8 +65,27 @@ public class DroolsTest extends BaseTest {
     }
 
     @Test
-    public void testPerson() {
-        KieSession kieSession = super.getKieSession("hello");
+    public void testStatelessSession() {
+        StatelessKieSession statelessKieSession = super.getStatelessKieSession("abc");
 
+        Person person = new Person();
+        person.setAge(100);
+
+        Person globalPerson = new Person();
+        globalPerson.setAge(90);
+        globalPerson.setName("abc");
+
+
+        List<String> list = new ArrayList<String>();
+        list.add("abc");
+        list.add("hello");
+        list.add("hello1");
+
+        statelessKieSession.setGlobal("list", list);
+        statelessKieSession.setGlobal("count", 520);
+        statelessKieSession.setGlobal("globalPerson", globalPerson);
+
+        statelessKieSession.execute(person);
+        System.out.println("name:" + person.getName() + ",age:" + person.getAge());
     }
 }
