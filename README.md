@@ -17,7 +17,8 @@ KieService：该接口提供了很多方法，可以通过这些方法访问KIE 
 			* 比如说可以获取KieContainer，利用KieContainer 来访问KBase 和KSession 等信息；
 			* 可以获取KieRepository 对象，利用KieRepository 来管理KieModule 等。
 			* KieServices : 就是一个中心，通过它来获取的各种对象来完成规则构建、管理和执行等操作。
-KieBase：应用程序知识定义的存储库，它将包含规则，流程，函数和类型模型。
+KieBase(RuleBase)：应用程序知识定义的存储库，它将包含规则，流程，函数和类型模型。
+KieModule：KieBase集合
 KieSession：与Drools引擎打交道，对运行时数据进行规则运算
 KieRepository：充当所有KieModule的存储库
 KieContainer：创建KBase、KSession
@@ -100,10 +101,34 @@ extends：规则继承（抽取公共代码）
 do：   do[then1]   then[then1] 建议配套使用
 
 
-
 session:
 stateful:有状态
 StatelessKieSession：无状态 对stateful进行了包装，调用execute时内部实现创建一个StatefulKnowledgeSessionImpl，然后调用fireAllRules、dispose方法
+
+WorkBench：
+workbench-models-datamodel-api：提供条件/动作定制
+RuleModel：
+FactPattern：
+SingleFieldConstraint：
+ActionFieldList：
+
+
+
+
+workbench-models-guided-template：提供规则模板
+TemplateModel：
+
+方案：后端生成规则json：
+		String json = JSONObject.toJSONString(person, new BeforeFilter() {
+            @Override
+            public void writeBefore(Object object) {
+                super.writeKeyValue("xtype", object.getClass().getName());
+            }
+        });
+      前端组装json：
+      后端解析json：转成JsonObject循环转换，直接调用JSONObject.parse无法转换（或者看有没有好的办法解析）
+
+
 
 决策表：
 RuleSet：在这个单元的右边单元中包含ruleset 的名称 和drl文件中的package 是一样
@@ -147,7 +172,6 @@ Kie-Server：
 Drools Fusion(CEP  Complex Event Processing)：可以简单的理解为流式数据处理，每条数据看做一个事件，这些事件有时间上的顺序性。
 
 Multithreaded Rule Engine：多线程规则引擎，该功能默认处于关闭状态 drools.multithreadEvaluation = true，目前这样的多线程规则不支持 queries、salience、agenda-group
-
 
 duplicateRule：存在新旧规则冲突时可配置策略
 
