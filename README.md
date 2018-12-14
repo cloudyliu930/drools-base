@@ -129,6 +129,13 @@ TemplateModel：
       后端解析json：转成JsonObject循环转换，直接调用JSONObject.parse无法转换（或者看有没有好的办法解析）
 
 
+      import 一次性全部导入
+变量作为leftField
+常量作为rightField
+
+urule以jcr的形式所有资源存储为二进制xml；我们是不是也可以存储为json之类呢?增加一个json解析器 动态生成TemplateModel：
+
+
 
 决策表：
 RuleSet：在这个单元的右边单元中包含ruleset 的名称 和drl文件中的package 是一样
@@ -196,6 +203,7 @@ duplicateRule：存在新旧规则冲突时可配置策略
 9、内存溢出问题：
 	1）、如果你的数据在内存使用一次，就不使用了，那么insert完后一定要调用delete方法，再调用dispose方法
 	2）、当规则改变时如果需要重新创建会话，记得把之前会话资源释放，调用dispose即可。
+10、如果采用变量形式不使用对象.变量，存在的问题是打包测试阶段多个规则集可能使用同一个变量导致测试数据达不到预期效果，解决办法测试传入数据以策略集为维度加上变量参数。
 
 目录结构：
 package namespace
