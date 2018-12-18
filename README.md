@@ -33,6 +33,13 @@ KieModuleModel：
 KieBuilder:
 KieResources:
 
+KieRepositoryImpl
+内部类：KieModuleRepo用来存储KieModule结构，及处理新旧KieModule切换问题
+kieModules：存放最新的KieModule Key：groupId:artifactId，Value为NavigableMap（Key为版本号，Value为KieModule）
+oldKieModules：存放被替换掉的KieModule，Key：ReleaseId，Value为KieModule
+
+
+
 
 属性：
 global：全局变量不会插入到Working Memory中，多个rule可以在本rule中修改值，但是其他rule不会被发现
@@ -236,7 +243,9 @@ EOF
 我们提供rule-sdk的依赖包，自动完成加载
 2、打包发布用到WorkBench了吗
 3、新版发布如果有些规则正在执行这个是怎么处理的，继续处理完旧的包？
-
+4、场景问题（策略集存在大量重复规则，如何优化）
+5、对外提供接口
+6、采用kjar发布，新旧规则如何切换
 
 
 
