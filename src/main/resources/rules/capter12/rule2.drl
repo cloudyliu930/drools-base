@@ -1,0 +1,15 @@
+package rules.capter12
+
+import com.cloudy.capter01.Person
+import java.lang.Integer
+import java.lang.String
+import java.lang.Long
+import java.lang.Number
+
+rule "rule2"
+when
+    Person(name == "1")
+    Person(name != "2")
+then
+    System.out.println("通过");
+end

@@ -29,4 +29,8 @@
     <kbase name="event" packages="rules.capter09">
         <ksession name="event"></ksession>
     </kbase>
+
+    <kbase name="rule_test" packages="rules.capter12">
+        <ksession name="rule1"></ksession>
+    </kbase>
 </kmodule>

@@ -1,0 +1,14 @@
+package rules.capter12
+
+import com.cloudy.capter01.Person
+import java.lang.Integer
+import java.lang.String
+
+rule "rule1"
+when
+    Person($na: name == "1")
+    Person(name != "2")
+then
+    System.out.println("$na" + $na);
+    System.out.println("通过");
+end
