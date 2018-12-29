@@ -1,0 +1,18 @@
+package rules;
+import com.ygts.security.riskcontrol.ruleengine.server.fact.Variables
+import com.ygts.security.riskcontrol.ruleengine.server.fact.RunContext
+import java.util.List
+
+rule "Hello World"
+salience 10
+dialect "mvel"
+when
+ vs: Variables()
+ context: RunContext(vs.get("username", String, "用户名") == "2" && vs.get("ageScore", Double, "年龄分") == 3 && vs.get("list", List, "标签").size() == 2)
+then
+ vs.append( "reasonCode", "blackage", "String", "原因编码码" );
+ vs.append( "reasonCode", "_blackage", "String", "原因编码码" );
+ vs.append("successCode", "100", Integer, "成功编码");
+ vs.append("successCode", "100", Integer, "成功编码");
+ vs.put( "risCode", "90000", "String", "决策码" );
+end;

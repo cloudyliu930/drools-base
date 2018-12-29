@@ -8,7 +8,7 @@ import org.drools.workbench.models.guided.template.shared.TemplateModel;
 import org.junit.Test;
 
 /**
- * @author liuchuangui
+ * @author cloudy
  * @createTime 2018/12/12
  * @description
  */

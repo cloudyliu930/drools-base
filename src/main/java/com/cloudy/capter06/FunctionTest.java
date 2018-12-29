@@ -5,7 +5,7 @@ import org.junit.Test;
 import org.kie.api.runtime.KieSession;
 
 /**
- * @author liuchuangui
+ * @author cloudy
  * @createTime 2018/11/28
  * @description
  */

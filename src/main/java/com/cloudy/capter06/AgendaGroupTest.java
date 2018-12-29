@@ -8,7 +8,7 @@ import org.kie.api.runtime.rule.AgendaFilter;
 import org.kie.api.runtime.rule.Match;
 
 /**
- * @author liuchuangui
+ * @author cloudy
  * @createTime 2018/11/28
  * @description
  */

@@ -1,0 +1,78 @@
+package rules.capter15
+
+import com.ygts.security.riskcontrol.ruleengine.server.fact.Variables
+import com.ygts.security.riskcontrol.ruleengine.server.fact.RunContext
+import java.util.List
+
+rule "rcs_condition1"
+dialect "mvel"
+agenda-group "rcs_condition1"
+when
+    vs: Variables()
+    eval(vs.get("ExpOrderOpenTestAccount", Integer, "ExpOrderOpenTestAccount") != 1
+            && vs.get("UserName", String, "UserName") != null
+            && vs.get("UserName", String, "UserName") ~= '^test10[0-9]{4}$')
+then
+    vs.put("successCode", "200", "String" , "code");
+end
+
+rule "rcs_condition2"
+dialect "mvel"
+agenda-group "rcs_condition2"
+when
+    vs: Variables()
+    eval(vs.get("ExpOrderOrderSource", String.class, "ExpOrderOrderSource") != null
+            && vs.get("ExpOrderOrderSource", String, "ExpOrderOrderSource").split(",") contains vs.get("orderSource", String, "orderSource"))
+then
+    vs.put("successCode", "200", "String" , "code");
+end
+
+rule "rcs_condition3"
+dialect "mvel"
+agenda-group "rcs_condition3"
+when
+    vs: Variables()
+    eval( vs.get("sourceOrderId", String.class, "sourceOrderId") == null)
+then
+    vs.put("successCode", "500", "String", "订单OrderId为空");
+end
+
+rule "rcs_condition4"
+dialect "mvel"
+agenda-group "rcs_condition4"
+when
+    vs: Variables()
+then
+
+end
+
+rule "rcs_condition5"
+dialect "mvel"
+agenda-group "rcs_condition5"
+when
+    vs: Variables()
+    eval( vs.get("payments", List, "payments") == null || vs.get("payments", List, "payments").size() == 0)
+then
+    vs.put("successCode", "500", "String", "支付明细不能为空");
+end
+
+rule "rcs_condition6"
+dialect "mvel"
+agenda-group "rcs_condition6"
+when
+    vs: Variables()
+    eval( vs.get("details", List, "details") == null || vs.get("details", List, "details").size() == 0)
+then
+    vs.put("successCode", "500", "String", "订单明细不能为空");
+end
+
+rule "rcs_condition7"
+dialect "mvel"
+agenda-group "rcs_condition7"
+when
+    vs: Variables()
+    eval( vs.get("price", Double, "price") / vs.get("totalPrice", Double, "totalPrice") <= 0.1)
+then
+    vs.put("tag", "实付低", "String", "实付低");
+    vs.put("successCode", "500", "String", "实付低");
+end

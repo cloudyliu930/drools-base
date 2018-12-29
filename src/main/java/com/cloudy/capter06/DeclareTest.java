@@ -6,7 +6,7 @@ import org.kie.api.definition.type.FactType;
 import org.kie.api.runtime.KieSession;
 
 /**
- * @author liuchuangui
+ * @author cloudy
  * @createTime 2018/11/28
  * @description
  */

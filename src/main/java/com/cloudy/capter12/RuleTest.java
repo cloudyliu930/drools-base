@@ -8,7 +8,7 @@ import org.kie.api.runtime.KieSession;
 import java.util.concurrent.ArrayBlockingQueue;
 
 /**
- * @author liuchuangui
+ * @author cloudy
  * @createTime 2018/12/13
  * @description
  */

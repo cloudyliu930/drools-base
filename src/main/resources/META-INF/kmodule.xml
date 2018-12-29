@@ -33,4 +33,12 @@
     <kbase name="rule_test" packages="rules.capter12">
         <ksession name="rule1"></ksession>
     </kbase>
+
+    <kbase name="variable_test" packages="rules.capter14">
+        <ksession name="variable_test"></ksession>
+    </kbase>
+
+    <kbase name="rcs_test" packages="rules.capter15">
+        <ksession name="rcs_condition"></ksession>
+    </kbase>
 </kmodule>

@@ -256,3 +256,24 @@ EOF
 2、流模式
 3、kjar模式 打成jar包、再引入。
 4、提供SDK形式，规则引擎配置规则，下发到各应用
+
+
+一、需要优化点
+1、创建KBase
+2、初次调用fireAllRules
+3、InitContext 目前是获取所有key逐个加载，可以采用分页加载形式
+4、当更新kjar时，KieModule drools支持新老包替换策略，container 如何处理？   
+
+二、解决办法
+4、releaseId作为Key， value为一个队列，如果有新的container放到队尾，每次调用取队尾container，启动定时器清理旧的container、kiemodule
+
+启动步骤：
+准备：
+jar版本仓库		防止旧的jar替换新jar
+KieContainer仓库	初始化container容器，避免重复创建，支持新老版本container（利用Stack处理）
+
+1、初始化启动ETCD监听器
+2、批量拉取ETCD jar添加到规则引擎
+
+调用规则引擎方法论：
+1、获取全部变量一次调用，规则支持随时退出功能。

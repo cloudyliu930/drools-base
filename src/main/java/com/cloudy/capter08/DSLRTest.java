@@ -10,7 +10,7 @@ import org.kie.internal.io.ResourceFactory;
 import org.kie.internal.utils.KieHelper;
 
 /**
- * @author liuchuangui
+ * @author cloudy
  * @createTime 2018/11/29
  * @description
  */
